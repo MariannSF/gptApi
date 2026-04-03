@@ -1,0 +1,7 @@
+credits.csv
+ratings.csv
+movies.db
+chat.db
+__pycache__/
+.idea/
+.env
