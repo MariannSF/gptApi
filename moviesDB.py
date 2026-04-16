@@ -6,7 +6,7 @@ from pandas.plotting import table
 
 # gets the api Key and creates a connection using key
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-print("API KEY in moviesDB:", os.getenv("OPENAI_API_KEY"))
+#print("API KEY in moviesDB:", os.getenv("OPENAI_API_KEY"))
 
 
 def load_to_sqlite():
@@ -69,7 +69,7 @@ def generate_sql(user_input):
     )
 
     # extract generated SQL
-    query = response.output[0].content[0].text.strip()
+    query = response.output_text.strip()
 
     # clean formatting
     query = query.replace("```sql", "").replace("```", "").strip()
