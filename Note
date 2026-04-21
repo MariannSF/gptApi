@@ -1,0 +1,8 @@
+ to do:
+ connect chat to database----> Done
+
+ when left side is run the chat side redisplay old session ---> Working
+
+ add a clear session history button to chat
+
+ also allocate only left side for query and right side for chat bot

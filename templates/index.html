@@ -44,7 +44,7 @@
             color: blue;
         }
 
-        .message.bot {
+        .message.assistant {
             text-align: left;
             color: green;
         }
@@ -111,7 +111,14 @@
         <form method="POST" action="/chat">
             <input type="text" name="chat_input" placeholder="Ask something...">
             <button type="submit">Send</button>
+
         </form>
+
+       <form action="/clear_chat" method="POST" style="margin-bottom:10px;">
+    <button type="submit" style="background-color:red; color:white;">
+        Clear Chat
+    </button>
+</form>
     </div>
 
 </div>

@@ -30,6 +30,17 @@ def save_message(session_id, role, content, query=None):
     conn.commit()
     conn.close()
 
+def clear_messages(session_id):
+    conn = sqlite3.connect("chat.db")
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    DELETE FROM chat_history
+    WHERE session_id = ?
+    """, (session_id,))
+
+    conn.commit()
+    conn.close()
 
 def load_messages(session_id):
     conn = sqlite3.connect("chat.db")

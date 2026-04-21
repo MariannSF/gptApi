@@ -6,6 +6,7 @@ from moviesDB import client
 from chatDB import init_chat_db, save_message, load_messages
 import uuid
 from utils import format_for_openai
+from chatDB import init_chat_db, save_message, load_messages, clear_messages
 
 init_chat_db()
 
@@ -108,6 +109,19 @@ def chat():
         chat_history=chat_history
     )
 
+@app.route('/clear_chat', methods=['POST'])
+def clear_chat():
+    old_session_id = session["session_id"]
+
+    clear_messages(old_session_id)
+
+    # generate NEW session
+    session["session_id"] = str(uuid.uuid4())
+
+    return render_template(
+        "index.html",
+        chat_history=[]
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
